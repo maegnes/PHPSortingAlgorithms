@@ -25,15 +25,13 @@ namespace Sort {
          * @return array
          */
         public function mergeSort( $f1 = Array() ) {
-            if( 1 == count( $f1 ) ) {
+            if( 1 == count( $f1 ) )
                 return $f1;
-            } else {
-                $result = $this->divide( $f1 );
-                return $this->merge(
-                    $this->mergeSort( $result[0] ),
-                    $this->mergeSort( $result[1] )
-                );
-            }
+            $result = $this->divide( $f1 );
+            return $this->merge(
+                $this->mergeSort( $result[0] ),
+                $this->mergeSort( $result[1] )
+            );
         }
 
         /**
