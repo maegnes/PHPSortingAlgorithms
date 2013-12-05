@@ -41,7 +41,13 @@ namespace Sort {
          * @return array
          */
         public function divide( $f1 ) {
-            return Array( array_splice( $f1, ( 0 == ( count( $f1 ) % 2 ) ) ? ( count( $f1 ) / 2 ) : ( count( $f1 ) -1 ) / 2 ), $f1 );
+            return Array(
+                array_splice(
+                    $f1,
+                    ( 0 == ( count( $f1 ) % 2 ) ) ? ( count( $f1 ) / 2 ) : ( count( $f1 ) -1 ) / 2
+                ),
+                $f1
+            );
         }
 
         /**
@@ -53,14 +59,13 @@ namespace Sort {
          */
         public function merge( $f1 = Array(), $f2 = Array() ) {
             $helpArray = Array();
-            while( true ) {
-                if( 0 == count( $f1 ) || 0 == count( $f2 ) ) {
+            while( true ) { # i've ever wanted to do this :)
+                if( 0 == count( $f1 ) || 0 == count( $f2 ) )
                     $helpArray[] = ( 0 == count( $f1 ) ) ? array_shift( $f2 ) : array_shift( $f1 );
-                } elseif( (int)$f1[0] < (int)$f2[0] ) {
+                elseif( (int)$f1[0] < (int)$f2[0] )
                     $helpArray[] = array_shift( $f1 );
-                } else {
+                else
                     $helpArray[] = array_shift( $f2 );
-                }
                 // If both arrays are empty, leave loop
                 if( 0 == count( $f1 ) && 0 == count( $f2 ) )
                     break;
